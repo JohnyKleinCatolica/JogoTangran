@@ -1,0 +1,65 @@
+﻿html, body {
+	margin: -0.1px;
+	padding: 0px;
+	background-color: #F5F5F5;
+	font-family: 'Roboto', sans-serif;
+
+}
+
+canvas {
+	background-color: white;
+	width: 100%;
+	height : 99%;
+	margin-bottom: -17px;
+}
+
+footer{
+	margin-top: 0;
+	background-color: #303030;
+	height: 200px;
+	width: 100%;
+	color: white;
+	text-align: center;
+	padding-top: 10px;
+}
+
+ul {
+      list-style: none;
+      padding-left: 0px !important;
+ }
+
+a {
+ 	color: inherit;
+ 	text-decoration: none;
+}
+
+figcaption{
+ 	margin-top: 10px;
+}
+
+h2{
+ 	margin: auto;
+}
+
+li{
+	margin-top: 7px;
+}
+
+.team{
+	float: left;
+	width: 33.33%;
+	overflow: hidden;
+}
+
+
+.repository{
+	float: left;
+	width: 33.33%;
+	overflow: hidden;
+}
+
+.copyright{
+	width: 100%;
+	height: 50px;
+	float: left;
+}
