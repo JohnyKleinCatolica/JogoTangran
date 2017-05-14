@@ -1,9 +1,10 @@
 'use strict'
 
+//+1.4
 var anchorsetTo1 = [3.15, 2.15, 1.57, 2.02, 0.72, 0.8, -0.19];//Eixo x figuraEncaixe
-var anchorsetTo2 = [4.31, 4.31, 3.8, 2.22, 1.57, 1.53, 2.05];//Eixo y figuraEncaixe
-var anchorX = [-6.2, 8, -2.9, 5.5, -2.53, 2.76, 2.9]; //Eixo x figuraAEncaixar
-var dimensaoSprite = [38, 175, 200, 290, 357, 437, 35]; //Eixo y figuraAEncaixar
+var anchorsetTo2 = [4.5, 4.5, 3.99, 2.35, 1.65, 1.64, 1.64];//Eixo y figuraEncaixe
+var anchorX = [-7.6, 8, -3.6, 5, -3.5, 2.6, 2.6]; //Eixo x figuraAEncaixar
+var dimensaoSprite = [20, 140, 200, 290, 340, 440, 10]; //Eixo y figuraAEncaixar
 
 var tangran, interval, tempo, diferencaX, diferencaY, margemDeErroEncaixe = 5;
 
@@ -32,22 +33,22 @@ setTangran();
 var game = new Phaser.Game(window.innerWidth - 15, window.innerHeight - 20, Phaser.AUTO, 'tangran', { preload: preload, create: create });
 
 function preload() {
-    //game.load.image('fundo', 'mockups/Mockup2.jpg');
-	game.stage.backgroundColor = "#e0e4f1";
-    tangran.forEach(function (item) {
+	//game.stage.backgroundColor = "#e0e4f1";
+    game.load.image('fundo', 'mockups/Mockup2.jpg');
+	tangran.forEach(function (item) {
 		game.load.image(item.figureName, item.url);
 	});
 }
 
 function create() {
-    //game.add.sprite(0, 0, 'fundo');
+    game.add.sprite(0, 0, 'fundo');
     
 	tangran.forEach(function (item, i) {
 		game.physics.startSystem(Phaser.Physics.ARCADE);
 		item.object = game.add.sprite(game.world.centerX, game.world.height, item.figureName);
 		item.object.anchor.setTo(anchorsetTo1[i], anchorsetTo2[i]); //Disposição figuraEncaixe
 		game.physics.arcade.enable(item.object);
-		item.object.tint = 0x00beff; //Cor figuraEncaixe
+		item.object.tint = Phaser.Color.getRandomColor(50, 255, 255); //Cor figuraEncaixe
 	});
 
 	tangran.forEach(function (item, i) {
@@ -56,7 +57,7 @@ function create() {
 		game.physics.arcade.enable(item.objectForm);
 		item.objectForm.inputEnabled = true;
 		item.objectForm.input.enableDrag();
-		item.objectForm.tint = Phaser.Color.getRandomColor(50, 255, 255); //Cor figurasAEncaixar
+		item.objectForm.tint = 0x00beff; //Cor figurasAEncaixar
 		item.objectForm.input.enableSnap(15, 15, false, true);
 		item.objectForm.events.onDragStop.add(function (currentSprite) {
 			var currentItem = tangran.filter(function (element) { return element.figureName === currentSprite.key }).shift();
