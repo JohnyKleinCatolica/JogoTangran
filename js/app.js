@@ -32,7 +32,7 @@ setTangran();
 var game = new Phaser.Game(window.innerWidth - 15, window.innerHeight - 20, Phaser.AUTO, 'tangran', { preload: preload, create: create });
 
 function preload() {
-    game.load.image('fundo', 'img/fundo.png');
+    game.load.image('fundo', 'img/fundo.jpg');
     game.load.image('folha', 'img/folha.png');
     game.load.image('canetaAzul', 'img/canetaAzul.png');
     game.load.image('canetas', 'img/canetas.png');
@@ -47,9 +47,9 @@ function preload() {
 
 function create() {
     game.add.sprite(0, 0, 'fundo');
-    game.add.sprite(450 , 30, 'folha');
-    game.add.sprite(350 , 50, 'canetaAzul');
-    game.add.sprite(950 , 380, 'canetas');
+    game.add.sprite(380 , 30, 'folha');
+    game.add.sprite(280 , 100, 'canetaAzul');
+    game.add.sprite(1250 , 280, 'canetas');
     game.add.sprite(30 , 420, 'cafe');
     game.add.sprite(1230 , 550, 'smartphone');
     
