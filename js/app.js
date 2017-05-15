@@ -33,6 +33,12 @@ var game = new Phaser.Game(window.innerWidth - 15, window.innerHeight - 20, Phas
 
 function preload() {
     game.load.image('fundo', 'img/fundo.png');
+    game.load.image('folha', 'img/folha.png');
+    game.load.image('canetaAzul', 'img/canetaAzul.png');
+    game.load.image('canetas', 'img/canetas.png');
+    game.load.image('cafe', 'img/cafe.png');
+    game.load.image('smartphone', 'img/smartphone.png');
+    
 	//game.stage.backgroundColor = "#e0e4f1";
     tangran.forEach(function (item) {
 		game.load.image(item.figureName, item.url);
@@ -41,6 +47,11 @@ function preload() {
 
 function create() {
     game.add.sprite(0, 0, 'fundo');
+    game.add.sprite(450 , 30, 'folha');
+    game.add.sprite(350 , 50, 'canetaAzul');
+    game.add.sprite(950 , 380, 'canetas');
+    game.add.sprite(30 , 420, 'cafe');
+    game.add.sprite(1230 , 550, 'smartphone');
     
 	tangran.forEach(function (item, i) {
 		game.physics.startSystem(Phaser.Physics.ARCADE);
