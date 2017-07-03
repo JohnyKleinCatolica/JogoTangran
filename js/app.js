@@ -50,7 +50,7 @@ function preload() {
 function create() {
     
     game.physics.startSystem(Phaser.Physics.ARCADE);
-    game.stage.backgroundColor = "#535353";
+    game.stage.backgroundColor = "#999999";
     
     game.add.sprite(390, 100, 'folha');
     game.add.sprite(780 , 70, 'canetaAzul');
@@ -71,15 +71,19 @@ function create() {
     });    	
 
 	tangran.forEach(function (item, i) {
-       
+        
 		item.objectForm = game.add.sprite(game.world.centerX, yEncaixe[i], item.object.key, item.object.frame);  //Eixo y encaixar
 		//Eixo x encaixar
         item.objectForm.x = xEncaixe[i];
+          
+        var spriteAtual = item.objectForm;
         
-		game.physics.arcade.enable(item.objectForm);
+		game.physics.arcade.enable(item.objectForm, Phaser.Physics.ARCADE);
+            spriteAtual.body.collideWorldBounds = true;
+        	spriteAtual.body.checkCollision = false;
 		item.objectForm.inputEnabled = true;
 		item.objectForm.input.enableDrag(false, true);
-		item.objectForm.tint = Phaser.Color.getRandomColor(50, 255, 255);
+		item.objectForm.tint = Phaser.Color.getRandomColor(20, 255, 255);
 		item.objectForm.input.enableSnap(15, 15, false, true);
 		item.objectForm.events.onDragStop.add(function (currentSprite) {
 			var currentItem = tangran.filter(function (element) { return element.figureName === currentSprite.key }).shift();
