@@ -80,7 +80,7 @@ function create() {
         
 		game.physics.arcade.enable(item.objectForm, Phaser.Physics.ARCADE);
             spriteAtual.body.collideWorldBounds = true;
-        	spriteAtual.body.checkCollision = false;
+        	spriteAtual.body.checkCollision = true;
 		item.objectForm.inputEnabled = true;
 		item.objectForm.input.enableDrag(false, true);
 		item.objectForm.tint = Phaser.Color.getRandomColor(20, 255, 255);
