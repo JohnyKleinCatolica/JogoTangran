@@ -29,10 +29,6 @@ Tangram é um antigo jogo chinês, que consiste na formação de figuras e desen
 - Lucas Jorge Hubert;
 - Matheus de Quadros;
 - Patrik Reisner.
-<<<<<<< HEAD
 ## LINK DO PROJETO NA WEB: https://patrikfreisner.github.io/canvas_gitrep/
 
 https://waffle.io/patrikfreisner/canvas_gitrep
-=======
-## LINK DO PROJETO NA WEB: https://johnykleincatolica.github.io/JogoTangran/
->>>>>>> origin/master

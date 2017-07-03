@@ -1,12 +1,12 @@
 'use strict';
 
 //Coordernadas do molde
-var xMolde = [415, 480, 415, 429, 520, 468, 650];
+var xMolde = [417, 480, 416, 429, 520, 467, 649];
 var yMolde = [160, 160, 222, 310, 310, 439, 530];
 
 //Coordernadas à encaixar
-var xEncaixe = [200, 200, 200, 200, 200, 200, 200];
-var yEncaixe = [2, 2, 2, 2, 2, 2, 2];
+var xEncaixe = [200, 100, 200, 930, 950, 950, 100];
+var yEncaixe = [520, 250, 360, 350, 100, 480, 80];
 
 var tangran, interval, tempo, diferencaX, diferencaY, margemDeErroEncaixe = 5;
 var sprite, sprite2, sprite3; 
@@ -36,18 +36,11 @@ setTangran();
 var game = new Phaser.Game(window.innerWidth, screen.height, Phaser.AUTO, 'tangran', { preload: preload, create: create });
 
 function preload() {
-
-    var n = tangran[0].object;
-    
-    //game.load.image('quad', 'assets/gato/quad1.png');
     
     game.load.image('folha', 'img/folha.png');
     game.load.image('canetaAzul', 'img/canetaAzul.png');
-    game.load.image('canetas', 'img/canetas.png');
     game.load.image('cafe', 'img/cafe.png');
     game.load.image('smartphone', 'img/smartphone.png');    
-    
-    game.load.image('gato', 'assets/gato/gato.png')
     
 	tangran.forEach(function (item) {
 		game.load.image(item.figureName, item.url);
@@ -57,14 +50,12 @@ function preload() {
 function create() {
     
     game.physics.startSystem(Phaser.Physics.ARCADE);
-
-    game.add.sprite(390, 100, 'folha');
-    game.add.sprite(280 , 100, 'canetaAzul');
-    game.add.sprite(1250 , 280, 'canetas');
-    game.add.sprite(30 , 420, 'cafe');
-    game.add.sprite(1230 , 550, 'smartphone');  
+    game.stage.backgroundColor = "#535353";
     
-    game.add.sprite(415, 160, 'gato');
+    game.add.sprite(390, 100, 'folha');
+    game.add.sprite(780 , 70, 'canetaAzul');
+    game.add.sprite(1110 , 320, 'cafe');
+    game.add.sprite(30 , 450, 'smartphone');  
     
     //game.add.sprite(450, 60, 'quad');
     
@@ -76,23 +67,8 @@ function create() {
             item.object.x = xMolde[i];
             item.object.y = yMolde[i];
 		game.physics.arcade.enable(item.object);
-		//item.object.tint = 0x00beff; //Cor Molde Encaixe   
-        item.object.tint = Phaser.Color.getRandomColor(1, 255, 255);
-    });    
-    
-	sprite = game.add.sprite(380, 30, 'canetaAzul');
-	game.physics.enable(sprite, Phaser.Physics.ARCADE);
-	sprite.body.collideWorldBounds = true;
-	sprite.body.checkCollision.up = false;
-	sprite.body.checkCollision.down = false;
-	sprite.body.immovable = true;
-
-	sprite2 = game.add.sprite(350, 400, 'cafe', 2);
-
-	game.physics.enable(sprite2, Phaser.Physics.ARCADE);
-	sprite2.body.collideWorldBounds = true;
-	sprite2.body.bounce.setTo(1, 1);
-	
+		item.object.tint = 0x00beff; //Cor Molde Encaixe   
+    });    	
 
 	tangran.forEach(function (item, i) {
        

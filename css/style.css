@@ -1,13 +1,9 @@
 html, body {
 	margin: -0.1px;
 	padding: 0px;
-	background-color: #F5F5F5;
 	font-family: 'Roboto', sans-serif;
-<<<<<<< HEAD
 	overflow-x: hidden;
-=======
-        overflow-x: hidden;
->>>>>>> origin/master
+    /*background-image: url("img/fundo.jpg");*/
 }
 
 #tangram {
