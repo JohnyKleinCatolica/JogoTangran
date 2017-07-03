@@ -3,7 +3,7 @@ html, body {
 	padding: 0px;
 	background-color: #F5F5F5;
 	font-family: 'Roboto', sans-serif;
-    overflow-x: hidden;
+	overflow-x: hidden;
 }
 
 #tangram {
@@ -28,8 +28,8 @@ footer{
 }
 
 ul {
-      list-style: none;
-      padding-left: 0px !important;
+  list-style: none;
+  padding-left: 0px !important;
  }
 
 a {
@@ -55,11 +55,14 @@ li{
 	overflow: hidden;
 }
 
-
 .repository{
 	float: left;
 	width: 33.33%;
 	overflow: hidden;
+}
+
+.repository img{
+	width:78px;
 }
 
 .copyright{
@@ -70,32 +73,32 @@ li{
 
 .teste{
 	width: 84px;
-    height: 50px;
+  height: 50px;
 	background-color: white;
 	position: fixed;
-    left: 94%;
-    top: 30px;
+  left: 94%;
+  top: 30px;
 	border-bottom-left-radius: 5px;
-    border-top-left-radius: 5px;
+  border-top-left-radius: 5px;
 	padding-left: 18px;
 }
 
 .button-refresh{
 	width: 84px;
-    height: 50px;
+  height: 50px;
 	background-color: white;
 	position: fixed;
-    left: 94%;
-    top: 90px;
+  left: 94%;
+  top: 90px;
 	border-bottom-left-radius: 5px;
-    border-top-left-radius: 5px;
+  border-top-left-radius: 5px;
 	padding-left: 18px;
 }
 
 .button-refresh > i{
 	margin-top: 7px;
-    margin-left: 8px;
-    font-size: 35px;
+  margin-left: 8px;
+  font-size: 35px;
 }
 
 .material-icons {
@@ -114,10 +117,99 @@ li{
   -webkit-font-smoothing: antialiased;
 }
 
+.win-wrapper{
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.5);
+	position: absolute;
+	top: 0;
+}
+
+#you-win{
+	border-radius: 5px;
+	padding-top: 30px;
+	text-align: center;
+  width: 400px;
+  height: 205px;
+  background-color: white;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.you-win-enabled{
+     transition: opacity 0.4s ease-out;
+}
+
+#you-win i{
+	font-size: 100px;
+	float: left;
+	color:  #eaeaea;
+}
+
+#you-win button i{
+	font-size: 30px;
+  height: auto;
+  margin: 0;
+}
+
+#you-win .first{
+	margin-left: 50px
+}
+
+#you-win .middle{
+	margin-top: -20px
+}
+
+.star-wrapper{
+  width: 100%;
+  display: inline-block;
+}
+
+.halfStar{
+  background: linear-gradient(to right, yellow 0%, yellow 50%,  #eaeaea 50%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.fullStar{
+	color: yellow;
+}
+
+.hide-element{
+	display: none;
+}
+
+button{
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #2e6da4;
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
 /* fallback */
 @font-face {
   font-family: 'Material Icons';
   font-style: normal;
   font-weight: 400;
-  src: url(https://fonts.gstatic.com/s/materialicons/v22/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2) format('woff2');
+  src: url(2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2) format('woff2');
 }
