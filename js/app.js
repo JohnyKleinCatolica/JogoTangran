@@ -52,7 +52,7 @@ function create() {
     game.physics.startSystem(Phaser.Physics.ARCADE);
     game.stage.backgroundColor = "#999999";
     
-    game.add.sprite(390, 100, 'folha');
+    game.add.sprite(400, 100, 'folha');
     game.add.sprite(780 , 70, 'canetaAzul');
     game.add.sprite(1110 , 320, 'cafe');
     game.add.sprite(30 , 450, 'smartphone');  
