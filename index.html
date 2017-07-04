@@ -8,18 +8,30 @@
 </head>
 
 <body>
-	<header>
-		<!--<h1>Projeto em aula - Poligonos</h1>-->
-	</header>
-	<div class="teste"></div>
+
+	<!--Left Itens-->
+	<div class="current-timer"0>Tempo</div>
 	<div class="button-refresh" onclick="reset();">
 		<i class="material-icons">refresh</i>
 	</div>
-	<div id="tangran">
-
+	<div class="contClick"><h3>Click's</h3>
+		<i class="material-icons"></i>
 	</div>
 
-	<!--<div class="win-wrapper hide-element">
+	<!--Canvas-->
+	<div class="tangram-wrapper"> <!-- Classe aux. p/ setar altura min. ao iniciar -->
+		<div id="tangran"></div> <!-- Id do Canvas Tangran -->
+	</div>
+
+	<!--Modals-->
+	<div class="start-wrapper">
+		<div id="you-win">
+			<h5>TangranDO</h5>
+			<button onclick="startGame()">Iniciar<i class="material-icons">play_arrow</i></button>
+		</div>
+	</div>
+
+	<div class="win-wrapper hide-element">
 		<div id="you-win">
 			<div class="star-wrapper">
 				<i class="material-icons first">star</i>
@@ -31,13 +43,6 @@
 			<button><i class="material-icons">refresh</i></button>
 		</div>
 	</div>
-
-	<div class="win-wrapper">
-		<div id="you-win">
-			<h5>TangranDO</h5>
-			<button>Iniciar<i class="material-icons">play_arrow</i></button>
-		</div>
-	</div>-->
 
 	<footer>
 		<div class="repository">
@@ -51,7 +56,6 @@
 			 data-count-href="/patrikfreisner/canvas_gitrep/stargazers" data-count-api="/repos/patrikfreisner/canvas_gitrep#stargazers_count"
 			 data-count-aria-label="# stargazers on GitHub" aria-label="Star ntkme/github-buttons on GitHub">Star</a>
 		</div>
-
 		<div class="team">
 			<h4>Equipe</h4>
 			<ul>
@@ -62,7 +66,6 @@
 				<li>Patrik Reisner </li>
 			</ul>
 		</div>
-
 		<div class="repository">
 			<a href="https://github.com/patrikfreisner/canvas_gitrep/wiki">
 				<figure>
