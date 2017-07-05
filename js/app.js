@@ -1,6 +1,7 @@
 'use strict';
     
 var tangran, interval, tempo, canvasTangran, click = 0, difXEncaixe, difYEncaixe, mrgmDeErro = 5;
+var fg0 = 0, fg1 = 0, fg4 = 0, fg5 = 0;
 var sprite, sprite2, sprite3; 
 
 function startGame() {
@@ -52,7 +53,7 @@ function startGame() {
 
     function create() {
         game.physics.startSystem(Phaser.Physics.ARCADE);
-
+        
         game.stage.backgroundColor = "#999999";
         game.add.sprite(400, 100, 'folha');
         game.add.sprite(780 , 70, 'canetaAzul');
@@ -78,7 +79,7 @@ function startGame() {
             item.objectForm.inputEnabled = true;
             item.objectForm.input.enableDrag(false, true);
             item.objectForm.tint = Phaser.Color.getRandomColor(20, 255, 255);
-            item.objectForm.input.enableSnap(5, 5, false, true);
+            //item.objectForm.input.enableSnap(5, 5, false, true); RECURSO N FUNCIONA BEM COM VALIDACAO
             item.objectForm.events.onDragStop.add(function (currentSprite) {
                 var currentItem = tangran.filter(function (element) { return element.figureName === currentSprite.key }).shift();
                 stopDrag(currentSprite, currentItem.object, tangran.indexOf(currentItem));
@@ -118,30 +119,99 @@ function startGame() {
         }
     }
 
+    function diferenca(valorA, valorB) {
+        var diferenca = valorA - valorB;
+        if (diferenca < 0) {
+          diferenca = diferenca * -1;
+        }
+        return diferenca;
+    }     
+    
+    var testeX, testeY;
+    
     function slapItem(currentSprite, endSprite) {
-
-        function diferenca(valorA, valorB) {
-            var diferenca = valorA - valorB;
-            if (diferenca < 0) {
-              diferenca = diferenca * -1;
-            }
-            return diferenca;
-        }    
 
         //Verificando diferença do encaixe com a peça molde.  
         difXEncaixe = diferenca(currentSprite.body.x, endSprite.body.x);
         difYEncaixe = diferenca(endSprite.body.y, currentSprite.body.y);
-
-        if (difXEncaixe<=mrgmDeErro && difYEncaixe<=mrgmDeErro){
-            currentSprite.position.copyFrom(endSprite.position); // Copia posição do molde 
-            currentSprite.anchor.setTo(endSprite.anchor.x, endSprite.anchor.y); //Seta aonde dar um Stop
+        
+        if (difXEncaixe<=mrgmDeErro && difYEncaixe<=mrgmDeErro) { //Verifica se img original é igual
+            currentSprite.body.x = endSprite.body.x;
+            currentSprite.body.y = endSprite.body.y;
             return true;
-        } else {
+        } 
+        else if(imgIgualOutroAngulo(currentSprite)){  //Verifica se uma outra img rotacionada é igual
+            
+            if(fg0){
+                testeX = diferenca(currentSprite.body.x, tangran[1].object.x);
+                testeY = diferenca(currentSprite.body.y, tangran[1].object.y);
+                
+                if(testeX<=mrgmDeErro && testeY<=mrgmDeErro){
+                    currentSprite.angle = -180;
+                    currentSprite.body.x = tangran[1].object.x;
+                    currentSprite.body.y = tangran[1].object.y;
+                    return true;
+                }
+            }
+            
+            if(fg1){
+                testeX = diferenca(currentSprite.body.x, tangran[0].object.x);
+                testeY = diferenca(currentSprite.body.y, tangran[0].object.y);
+                
+                if(testeX<=mrgmDeErro && testeY<=mrgmDeErro){
+                    currentSprite.angle = -180;
+                    currentSprite.body.x = tangran[0].object.x;
+                    currentSprite.body.y = tangran[0].object.y;
+                    return true;
+                }                
+            }
+            
+            if(fg4){
+                testeX = diferenca((currentSprite.body.x - 70), tangran[5].object.x);
+                testeY = diferenca((currentSprite.body.y - 3), tangran[5].object.y);
+                if(testeX<=mrgmDeErro && testeY<=mrgmDeErro){
+                    currentSprite.angle = 45;
+                    currentSprite.body.x = tangran[5].object.x;
+                    currentSprite.body.y = tangran[5].object.y;
+                    return true;
+                }                
+            }
+            
+            if(fg5){
+                var x = tangran[4].object.x;
+                testeX = diferenca((currentSprite.body.x + 88), x);
+                testeY = diferenca((currentSprite.body.y - 37), tangran[4].object.y);
+                if(testeX<=mrgmDeErro && testeY<=mrgmDeErro){
+                    currentSprite.angle = -45;
+                    currentSprite.body.x = tangran[4].object.x;
+                    currentSprite.body.y = tangran[4].object.y;
+                    return true;
+                }                
+            }
+        }  else { // Se a imagem movida não for igual
             currentSprite.position.copyFrom(currentSprite.position); // Copia para posição na qual já está
             return false;
         }
     }
-
+    
+    function imgIgualOutroAngulo(figuraAtual){
+            if(figuraAtual.key == "figura0"  && figuraAtual.angle == -180){
+                fg0 = 1;
+                return true;
+            }else if(figuraAtual.key == "figura1" && figuraAtual.angle == -180){
+                fg1 = 1;
+                return true;
+            }else if(figuraAtual.key == "figura4" && figuraAtual.angle == 45){
+                fg4 = 1;
+                return true;
+            }else if(figuraAtual.key == "figura5"  && figuraAtual.angle == -45){
+                fg5 = 1;
+                return true;
+            }else{
+                return false;
+            }      
+    }
+    
     function timer() {
         var start = new Date();
         start.setHours(0, 0, 0, 0);
