@@ -5,13 +5,13 @@
 	<title>TangranDO</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-</head>
-
+</head> 
+    
 <body>
 
 	<!--Left Itens-->
 	<div class="current-timer"0>Tempo</div>
-	<button class="button-refresh" onclick="resetar()">
+	<button class="button-refresh" onclick="resetar();">
        <i class="material-icons">refresh</i>
 	</button>
 	<div class="contClick">Cliques</div>
@@ -20,25 +20,25 @@
 	<div class="tangram-wrapper"> <!-- Classe aux. p/ setar altura min. ao iniciar -->
 		<div id="tangran"></div> <!-- Id do Canvas Tangran -->
 	</div>
-<!--
-	Modals
+    
+	<!--Modals-->
 	<div class="start-wrapper">
 		<div id="you-win">
 			<h5>TangranDO</h5>
-			<button onclick="startGame()">Iniciar<i class="material-icons">play_arrow</i></button>
+			<button onclick="iniciar()">Iniciar<i class="material-icons">play_arrow</i></button>
 		</div>
 	</div>
--->
+
 	<div class="win-wrapper hide-element">
 		<div id="you-win">
 			<div class="star-wrapper">
-				<i class="material-icons first">star</i>
-				<i class="material-icons middle">star</i>
-				<i class="material-icons">star</i>
+				<i class="material-icons" id="first">star</i>
+				<i class="material-icons" id="middle">star</i>
+				<i class="material-icons" id="tree">star</i>
 			</div>
 			<h2 id="timer">00:00:00</h2>
-			<button><i class="material-icons">play_arrow</i></button>
-			<button><i class="material-icons">refresh</i></button>
+			<button onclick="iniciar()"><i class="material-icons">play_arrow</i></button>
+			<button onclick="resetar()"><i class="material-icons">refresh</i></button>
 		</div>
 	</div>
 

@@ -1,7 +1,7 @@
 html, body {
 	margin: -0.1px;
 	padding: 0px;
-	background-color: #F5F5F5;
+	background-color: #999999;
 	font-family: 'Roboto', sans-serif;
 	overflow-x: hidden;
 }
@@ -187,11 +187,11 @@ li{
   margin: 0;
 }
 
-#you-win .first{
+#you-win #first{
 	margin-left: 50px
 }
 
-#you-win .middle{
+#you-win #middle{
 	margin-top: -20px
 }
 
@@ -207,7 +207,9 @@ li{
 }
 
 .fullStar{
-	color: yellow;
+  background: linear-gradient(to right, yellow 0%, yellow 100%,  #eaeaea 50%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
 }
 
 .hide-element{
